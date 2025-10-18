@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 'use client';
 
 import { useState } from 'react';
@@ -7,16 +6,18 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#083344] shadow-lg">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#083344] shadow-xl">
       <div className="lg:px-16 px-4 flex flex-wrap items-center justify-between py-4">
         {/* Logo */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <img
-            className="sm:w-[10rem] w-[7rem] z-10"
-            src="https://techakim.com/sam/tg/7268/li/imgs/samlogo2.png"
+            src="/images/logo.png"
             alt="Logo"
+            className="h-10 sm:h-6 w-auto object-contain"
           />
-          {/* Mobile Toggle Button */}
+
+
+          {/* Mobile Toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden focus:outline-none"
@@ -45,60 +46,25 @@ export default function Navbar() {
         >
           <nav className="pt-4 md:pt-0">
             <ul className="md:flex items-center justify-between text-base xl:text-lg text-gray-100 space-y-4 md:space-y-0 md:space-x-6">
-              <li>
-                <a
-                  href="#home"
-                  className="block md:inline md:p-4 py-3 px-0 text-rose-500 hover:text-rose-400"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="block md:inline md:p-4 py-3 px-0 hover:text-rose-500"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  About Me
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#education"
-                  className="block md:inline md:p-4 py-3 px-0 hover:text-rose-500"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Education
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#experience"
-                  className="block md:inline md:p-4 py-3 px-0 hover:text-rose-500"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
-                  className="block md:inline md:p-4 py-3 px-0 hover:text-rose-500"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="block md:inline md:p-4 py-3 px-0 hover:text-rose-500 md:mb-0 mb-2"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Contact
-                </a>
-              </li>
+              {[
+                { name: 'Home', href: '#home' },
+                { name: 'About Me', href: '#about' },
+                { name: 'Education', href: '#education' },
+                { name: 'Experience', href: '#experience' },
+                { name: 'Skills', href: '#skills' }, // ✅ Added
+                { name: 'Projects', href: '#projects' },
+                { name: 'Contact', href: '#contact' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="block md:inline md:p-3 py-2 px-0 transition duration-300 hover:text-rose-400 hover:underline underline-offset-4 decoration-rose-400"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

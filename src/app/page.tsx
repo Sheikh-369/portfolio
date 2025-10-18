@@ -8,6 +8,7 @@ import Education from "./components/education/education";
 import Experience from "./components/experience/experience";
 import Projects from "./components/projects/projects";
 import Contact from "./components/contact/contact";
+import Skills from "./components/skills/skills";
 
 export default function Home() {
   return (
@@ -32,6 +33,10 @@ export default function Home() {
 
           <section id="experience" className="scroll-mt-20">
             <Experience />
+          </section>
+
+          <section id="skills" className="scroll-mt-20">
+            <Skills />
           </section>
 
           <section id="projects" className="scroll-mt-20">
