@@ -1,0 +1,380 @@
+return me the copy paste ready code for this portfolio using nextjs
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    
+    .font-display { font-family: 'Syne', sans-serif; }
+    .font-body { font-family: 'Inter', sans-serif; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delay { animation: float 6s ease-in-out infinite; animation-delay: -3s; }
+    .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+    .animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientMove 4s ease infinite;
+    }
+    
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    
+    .project-overlay {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .blob {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    
+    .skill-tag {
+      transition: all 0.3s ease;
+    }
+    
+    .skill-tag:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div id="app-wrapper" class="min-h-full w-full overflow-auto" style="background: #0a0a0f;"><!-- Floating Background Elements -->
+   <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-72 h-72 blob animate-float opacity-20" style="background: linear-gradient(135deg, #ff6b6b, #feca57);"></div>
+    <div class="absolute top-40 right-20 w-96 h-96 blob animate-float-delay opacity-15" style="background: linear-gradient(135deg, #48dbfb, #ff9ff3);"></div>
+    <div class="absolute bottom-20 left-1/3 w-64 h-64 blob animate-float opacity-10" style="background: linear-gradient(135deg, #feca57, #48dbfb);"></div>
+   </div><!-- Navigation -->
+   <nav class="relative z-10 flex items-center justify-between px-8 py-6 lg:px-16">
+    <div class="font-display font-bold text-2xl" style="color: #ffffff;"><span class="gradient-text">folio.</span>
+    </div>
+    <div class="hidden md:flex items-center gap-8 font-medium text-sm" style="color: #a0a0b0;"><a href="#work" class="nav-link hover:text-white transition-colors">Work</a> <a href="#about" class="nav-link hover:text-white transition-colors">About</a> <a href="#contact" class="nav-link hover:text-white transition-colors">Contact</a>
+    </div><button class="md:hidden" style="color: #ffffff;"> <i data-lucide="menu" class="w-6 h-6"></i> </button>
+   </nav><!-- Hero Section -->
+   <section class="relative z-10 px-8 lg:px-16 pt-16 pb-24">
+    <div class="max-w-6xl mx-auto">
+     <div class="animate-slide-up" style="animation-delay: 0.1s; opacity: 0;">
+      <p class="font-medium text-sm tracking-widest uppercase mb-6" style="color: #ff6b6b;">Creative Developer &amp; Designer</p>
+     </div>
+     <h1 id="hero-name" class="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-none mb-8 animate-slide-up" style="color: #ffffff; animation-delay: 0.2s; opacity: 0;">Alex<br><span class="gradient-text">Morgan</span></h1>
+     <p id="hero-bio" class="text-lg md:text-xl max-w-xl leading-relaxed mb-12 animate-slide-up" style="color: #a0a0b0; animation-delay: 0.3s; opacity: 0;">I craft digital experiences that blend creativity with functionality. Specializing in interactive web applications, brand identity, and visual storytelling.</p>
+     <div class="flex flex-wrap gap-4 animate-slide-up" style="animation-delay: 0.4s; opacity: 0;"><a href="#work" class="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-sm rounded-full transition-all hover:scale-105" style="background: #ff6b6b; color: #0a0a0f;"> View My Work <i data-lucide="arrow-right" class="w-4 h-4"></i> </a> <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-sm rounded-full border-2 transition-all hover:bg-white hover:text-black" style="border-color: #ffffff; color: #ffffff;"> Get In Touch </a>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section class="relative z-10 px-8 lg:px-16 py-16">
+    <div class="max-w-6xl mx-auto">
+     <div class="flex flex-wrap gap-3"><span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(255, 107, 107, 0.15); color: #ff6b6b;">React</span> <span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(254, 202, 87, 0.15); color: #feca57;">TypeScript</span> <span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(72, 219, 251, 0.15); color: #48dbfb;">Node.js</span> <span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(255, 159, 243, 0.15); color: #ff9ff3;">Figma</span> <span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(255, 107, 107, 0.15); color: #ff6b6b;">Three.js</span> <span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(254, 202, 87, 0.15); color: #feca57;">GSAP</span> <span class="skill-tag px-5 py-2 rounded-full text-sm font-medium" style="background: rgba(72, 219, 251, 0.15); color: #48dbfb;">UI/UX</span>
+     </div>
+    </div>
+   </section><!-- Featured Work Section -->
+   <section id="work" class="relative z-10 px-8 lg:px-16 py-24">
+    <div class="max-w-6xl mx-auto">
+     <div class="flex items-end justify-between mb-16">
+      <div>
+       <p class="font-medium text-sm tracking-widest uppercase mb-4" style="color: #ff6b6b;">Portfolio</p>
+       <h2 class="font-display font-bold text-4xl md:text-5xl" style="color: #ffffff;">Featured Work</h2>
+      </div><a href="#" class="hidden md:flex items-center gap-2 font-medium text-sm transition-colors hover:text-white" style="color: #a0a0b0;"> View All <i data-lucide="arrow-right" class="w-4 h-4"></i> </a>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Project 1 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer" style="background: #13131a;">
+       <div class="aspect-[4/3] relative">
+        <div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);">
+         <svg class="w-24 h-24 opacity-30" viewbox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" /> <path d="M35 50 L45 60 L65 40" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+         </svg>
+        </div>
+        <div class="project-overlay absolute inset-0 flex items-center justify-center" style="background: rgba(10, 10, 15, 0.8);">
+         <div class="flex items-center gap-4"><span class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #ff6b6b;"> <i data-lucide="eye" class="w-5 h-5" style="color: #0a0a0f;"></i> </span> <span class="w-12 h-12 rounded-full flex items-center justify-center border-2" style="border-color: #ffffff;"> <i data-lucide="external-link" class="w-5 h-5" style="color: #ffffff;"></i> </span>
+         </div>
+        </div>
+       </div>
+       <div class="p-6">
+        <p class="text-xs font-medium tracking-wider uppercase mb-2" style="color: #ff6b6b;">Web Application</p>
+        <h3 id="project-1-title" class="font-display font-bold text-xl mb-2" style="color: #ffffff;">Lumina Dashboard</h3>
+        <p class="text-sm" style="color: #a0a0b0;">Analytics platform with real-time data visualization</p>
+       </div>
+      </div><!-- Project 2 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer" style="background: #13131a;">
+       <div class="aspect-[4/3] relative">
+        <div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(135deg, #48dbfb 0%, #ff9ff3 100%);">
+         <svg class="w-24 h-24 opacity-30" viewbox="0 0 100 100" fill="none"><rect x="20" y="20" width="60" height="60" rx="8" stroke="white" stroke-width="2" /> <circle cx="40" cy="45" r="8" stroke="white" stroke-width="2" /> <path d="M25 70 L40 55 L55 65 L75 45" stroke="white" stroke-width="2" stroke-linecap="round" />
+         </svg>
+        </div>
+        <div class="project-overlay absolute inset-0 flex items-center justify-center" style="background: rgba(10, 10, 15, 0.8);">
+         <div class="flex items-center gap-4"><span class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #48dbfb;"> <i data-lucide="eye" class="w-5 h-5" style="color: #0a0a0f;"></i> </span> <span class="w-12 h-12 rounded-full flex items-center justify-center border-2" style="border-color: #ffffff;"> <i data-lucide="external-link" class="w-5 h-5" style="color: #ffffff;"></i> </span>
+         </div>
+        </div>
+       </div>
+       <div class="p-6">
+        <p class="text-xs font-medium tracking-wider uppercase mb-2" style="color: #48dbfb;">Brand Identity</p>
+        <h3 id="project-2-title" class="font-display font-bold text-xl mb-2" style="color: #ffffff;">Nebula Studios</h3>
+        <p class="text-sm" style="color: #a0a0b0;">Complete brand identity for creative agency</p>
+       </div>
+      </div><!-- Project 3 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer md:col-span-2" style="background: #13131a;">
+       <div class="aspect-[21/9] relative">
+        <div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(135deg, #feca57 0%, #ff6b6b 50%, #ff9ff3 100%);">
+         <svg class="w-32 h-32 opacity-30" viewbox="0 0 100 100" fill="none"><polygon points="50,15 85,85 15,85" stroke="white" stroke-width="2" fill="none" /> <circle cx="50" cy="55" r="15" stroke="white" stroke-width="2" />
+         </svg>
+        </div>
+        <div class="project-overlay absolute inset-0 flex items-center justify-center" style="background: rgba(10, 10, 15, 0.8);">
+         <div class="flex items-center gap-4"><span class="w-14 h-14 rounded-full flex items-center justify-center" style="background: #feca57;"> <i data-lucide="eye" class="w-6 h-6" style="color: #0a0a0f;"></i> </span> <span class="w-14 h-14 rounded-full flex items-center justify-center border-2" style="border-color: #ffffff;"> <i data-lucide="external-link" class="w-6 h-6" style="color: #ffffff;"></i> </span>
+         </div>
+        </div>
+       </div>
+       <div class="p-8">
+        <p class="text-xs font-medium tracking-wider uppercase mb-2" style="color: #feca57;">E-Commerce</p>
+        <h3 id="project-3-title" class="font-display font-bold text-2xl mb-2" style="color: #ffffff;">Artisan Collective</h3>
+        <p class="text-sm" style="color: #a0a0b0;">Marketplace platform for independent creators and artisans</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="relative z-10 px-8 lg:px-16 py-24">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+       <p class="font-medium text-sm tracking-widest uppercase mb-4" style="color: #ff6b6b;">About Me</p>
+       <h2 id="about-title" class="font-display font-bold text-4xl md:text-5xl mb-8" style="color: #ffffff;">Creative Developer</h2>
+       <p class="text-lg leading-relaxed mb-6" style="color: #a0a0b0;">With over 5 years of experience in digital design and development, I've had the privilege of working with startups, agencies, and Fortune 500 companies.</p>
+       <p class="text-lg leading-relaxed mb-8" style="color: #a0a0b0;">My approach combines technical expertise with creative thinking to deliver solutions that not only look great but also perform exceptionally.</p>
+       <div class="flex gap-4"><a href="#" class="w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110" style="background: #13131a; color: #ffffff;"> <i data-lucide="github" class="w-5 h-5"></i> </a> <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110" style="background: #13131a; color: #ffffff;"> <i data-lucide="linkedin" class="w-5 h-5"></i> </a> <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110" style="background: #13131a; color: #ffffff;"> <i data-lucide="twitter" class="w-5 h-5"></i> </a> <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110" style="background: #13131a; color: #ffffff;"> <i data-lucide="dribbble" class="w-5 h-5"></i> </a>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="aspect-square rounded-3xl overflow-hidden" style="background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb);">
+        <div class="w-full h-full flex items-center justify-center">
+         <div class="text-center">
+          <div class="w-32 h-32 mx-auto rounded-full mb-4 flex items-center justify-center" style="background: rgba(255,255,255,0.2);"><i data-lucide="user" class="w-16 h-16" style="color: #ffffff;"></i>
+          </div>
+          <p class="font-display font-bold text-xl" style="color: #ffffff;">Your Photo Here</p>
+         </div>
+        </div>
+       </div>
+       <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl flex items-center justify-center" style="background: #13131a;">
+        <div class="text-center">
+         <p class="font-display font-bold text-3xl" style="color: #ff6b6b;">5+</p>
+         <p class="text-xs" style="color: #a0a0b0;">Years Exp.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="relative z-10 px-8 lg:px-16 py-24">
+    <div class="max-w-4xl mx-auto text-center">
+     <p class="font-medium text-sm tracking-widest uppercase mb-4" style="color: #ff6b6b;">Get In Touch</p>
+     <h2 class="font-display font-bold text-4xl md:text-6xl mb-8" style="color: #ffffff;">Let's Create<br><span class="gradient-text">Something Amazing</span></h2>
+     <p class="text-lg mb-12 max-w-xl mx-auto" style="color: #a0a0b0;">Have a project in mind? I'd love to hear about it. Let's discuss how we can work together.</p><a href="mailto:hello@alexmorgan.com" class="inline-flex items-center gap-3 px-10 py-5 font-display font-semibold text-lg rounded-full transition-all hover:scale-105" style="background: #ff6b6b; color: #0a0a0f;"> <i data-lucide="mail" class="w-5 h-5"></i> hello@alexmorgan.com </a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="relative z-10 px-8 lg:px-16 py-8 border-t" style="border-color: #1a1a25;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+     <p class="text-sm" style="color: #a0a0b0;">© 2024 Alex Morgan. All rights reserved.</p>
+     <div class="flex items-center gap-6 text-sm" style="color: #a0a0b0;"><a href="#" class="hover:text-white transition-colors">Privacy</a> <a href="#" class="hover:text-white transition-colors">Terms</a>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      name: "Alex Morgan",
+      title: "Creative Developer",
+      bio: "I craft digital experiences that blend creativity with functionality. Specializing in interactive web applications, brand identity, and visual storytelling.",
+      project_1_title: "Lumina Dashboard",
+      project_2_title: "Nebula Studios",
+      project_3_title: "Artisan Collective",
+      background_color: "#0a0a0f",
+      surface_color: "#13131a",
+      text_color: "#a0a0b0",
+      primary_action_color: "#ff6b6b",
+      secondary_action_color: "#ffffff",
+      font_family: "Syne",
+      font_size: 16
+    };
+    
+    let config = { ...defaultConfig };
+    
+    async function onConfigChange(cfg) {
+      config = { ...defaultConfig, ...cfg };
+      
+      // Update background
+      document.getElementById('app-wrapper').style.background = config.background_color;
+      
+      // Update hero name
+      const nameEl = document.getElementById('hero-name');
+      const nameParts = (config.name || defaultConfig.name).split(' ');
+      nameEl.innerHTML = `${nameParts[0] || ''}<br/><span class="gradient-text">${nameParts.slice(1).join(' ') || ''}</span>`;
+      
+      // Update bio
+      document.getElementById('hero-bio').textContent = config.bio || defaultConfig.bio;
+      
+      // Update about title
+      document.getElementById('about-title').textContent = config.title || defaultConfig.title;
+      
+      // Update project titles
+      document.getElementById('project-1-title').textContent = config.project_1_title || defaultConfig.project_1_title;
+      document.getElementById('project-2-title').textContent = config.project_2_title || defaultConfig.project_2_title;
+      document.getElementById('project-3-title').textContent = config.project_3_title || defaultConfig.project_3_title;
+      
+      // Update colors
+      document.querySelectorAll('[style*="background: #13131a"]').forEach(el => {
+        el.style.background = config.surface_color;
+      });
+      
+      document.querySelectorAll('[style*="color: #a0a0b0"]').forEach(el => {
+        el.style.color = config.text_color;
+      });
+      
+      document.querySelectorAll('[style*="background: #ff6b6b"]').forEach(el => {
+        el.style.background = config.primary_action_color;
+      });
+      
+      document.querySelectorAll('[style*="color: #ff6b6b"]').forEach(el => {
+        el.style.color = config.primary_action_color;
+      });
+      
+      // Update fonts
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      document.querySelectorAll('.font-display').forEach(el => {
+        el.style.fontFamily = `${fontFamily}, sans-serif`;
+      });
+      
+      // Update font sizes
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${baseSize}px`;
+    }
+    
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.background_color || defaultConfig.background_color,
+            set: (value) => { cfg.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => cfg.surface_color || defaultConfig.surface_color,
+            set: (value) => { cfg.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => { cfg.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+          },
+          {
+            get: () => cfg.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => { cfg.primary_action_color = value; window.elementSdk.setConfig({ primary_action_color: value }); }
+          },
+          {
+            get: () => cfg.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => { cfg.secondary_action_color = value; window.elementSdk.setConfig({ secondary_action_color: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || defaultConfig.font_family,
+          set: (value) => { cfg.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => cfg.font_size || defaultConfig.font_size,
+          set: (value) => { cfg.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ["name", cfg.name || defaultConfig.name],
+        ["title", cfg.title || defaultConfig.title],
+        ["bio", cfg.bio || defaultConfig.bio],
+        ["project_1_title", cfg.project_1_title || defaultConfig.project_1_title],
+        ["project_2_title", cfg.project_2_title || defaultConfig.project_2_title],
+        ["project_3_title", cfg.project_3_title || defaultConfig.project_3_title]
+      ]);
+    }
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+    
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Trigger initial animations
+    document.querySelectorAll('.animate-slide-up').forEach(el => {
+      el.style.opacity = '1';
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dc374c4f32f9885',t:'MTc3MzQ5MzE3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
