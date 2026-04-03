@@ -25,7 +25,7 @@ projects: [
     color: "#ff6b6b",
     image: "/HomepageSS.PNG",
     github: "https://github.com/Sheikh-369/Malta-Processing-And-Guide-Client",
-    live: "https://malta-processing-and-guide-client.vercel.app/"
+    live: "https://maltagateway.vercel.app/"
   },
   {
     title: "PG Stay",
