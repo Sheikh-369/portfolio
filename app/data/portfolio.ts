@@ -42,7 +42,7 @@ projects: [
     description: "An e-commerce platform to browse, shop and purchase sunglasses online.",
     color: "#feca57",
     wide: true,
-    image: "/HimalayaChasmaGhar.PNG",
+    image: "/HimalayaChasmaGHar.PNG",
     github: "https://github.com/Sheikh-369/Himalaya-Chasma-Client",
     live: "https://himalayachasmaghar.vercel.app/"
   }
