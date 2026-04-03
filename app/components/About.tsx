@@ -18,7 +18,7 @@ export default function About() {
         </h2>
 
         <p className="text-gray-400 mb-6 text-lg leading-relaxed">
-          With over 5 years of experience in digital design and
+          With over 2 years of experience in digital design and
           development, I've had the privilege of working with
           startups, agencies, and growing businesses.
         </p>
@@ -69,10 +69,3 @@ export default function About() {
     </section>
   )
 }
-
-
-
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Sheikh-369/portfolio.git
-git push -u origin main
